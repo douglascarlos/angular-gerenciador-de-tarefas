@@ -11,6 +11,14 @@ export class TarefaService {
   	return this.buscarDados();
   }
 
+  public cadastrar(tarefa: Tarefa): void {
+    tarefa.setId((new Date()).getTime());
+    tarefa.setConcluida(false);
+    let tarefas = this.buscar();
+    tarefas.push(tarefa);
+    this.atualizarDados(tarefas);
+  }
+
   private buscarDados(): Tarefa[] {
   	let dados = localStorage.getItem('tarefas');
   	let tarefas = [];

@@ -2,12 +2,16 @@ export class Tarefa {
 
 	constructor(
 		private id?: number,
-		public nome?: string,
+		private nome?: string,
 		private concluida?: boolean) {}
 
 	public getId(): number {
 		return this.id;
 	}
+
+	public setId(id: number): void {
+		this.id = id;
+	}	
 
 	public getNome(): string {
 		return this.nome;
