@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Tarefa } from '../shared';
+import { Tarefa } from './';
 
 @Injectable()
 export class TarefaService {

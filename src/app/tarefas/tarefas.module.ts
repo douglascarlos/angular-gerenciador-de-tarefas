@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TarefaService } from './shared';
 import { ListarComponent } from './listar/listar.component';
+import { CadastrarComponent } from './cadastrar';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { ListarComponent } from './listar/listar.component';
   	TarefaService
   ],
   declarations: [
-  	ListarComponent
+  	ListarComponent,
+  	CadastrarComponent
   ]
 })
 export class TarefasModule { }
