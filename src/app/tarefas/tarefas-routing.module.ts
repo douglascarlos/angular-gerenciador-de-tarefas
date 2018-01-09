@@ -1,17 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { ListarComponent } from './listar';
-
-// export const TarefaRoutes: Routes = [
-// 	{
-// 		path: 'tarefas',
-// 		redirectTo: 'tarefas/listar'
-// 	},
-// 	{
-// 		path: 'tarefas/listar',
-// 		redirectTo: ListarComponent
-// 	}
-// ];
+import { CadastrarComponent } from './cadastrar';
 
 export const TarefaRoutes: Routes = [
 	{ 
@@ -21,5 +11,9 @@ export const TarefaRoutes: Routes = [
 	{ 
 		path: 'tarefas/listar', 
 		component: ListarComponent 
+	},
+	{ 
+		path: 'tarefas/cadastrar', 
+		component: CadastrarComponent 
 	}
 ];
