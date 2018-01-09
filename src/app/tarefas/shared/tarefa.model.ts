@@ -2,7 +2,7 @@ export class Tarefa {
 
 	constructor(
 		private id?: number,
-		private nome?: string,
+		public nome?: string,
 		private concluida?: boolean) {}
 
 	public getId(): number {
@@ -17,7 +17,7 @@ export class Tarefa {
 		this.nome = nome;
 	}
 
-	public isConcluida(): boolean {
+	public estaConcluida(): boolean {
 		return this.concluida;
 	}
 

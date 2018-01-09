@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListarComponent } from './listar.component';
+import { TarefaService } from '../shared';
 
 describe('ListarComponent', () => {
   let component: ListarComponent;
@@ -8,7 +9,8 @@ describe('ListarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListarComponent ]
+      declarations: [ ListarComponent ],
+      providers: [ TarefaService ]
     })
     .compileComponents();
   }));

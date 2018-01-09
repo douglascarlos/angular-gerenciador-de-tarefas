@@ -1,6 +1,6 @@
 <h1>Tarefas</h1>
 
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-bordered table-hover">
   <tr>
   	<th>Tarefa</th>
     <th>Concluída</th>
@@ -11,12 +11,12 @@
     </th>
   </tr>
 
-  <tr>
+  <tr *ngFor="let tarefa of tarefas" [class.success]="tarefa.estaConcluida()">
     <td>
-      Nome da Tarefa
+      {{ tarefa.getNome() }}
     </td>
     <td style="width: 70px" class="text-center">
-      <input type="checkbox">
+      <input type="checkbox" [value]="tarefa.getId()">
     </td>
     <td class="text-center" style="width: 200px">
       <a title="Editar" alt="Editar" class="btn btn-xs btn-primary">
@@ -30,4 +30,4 @@
 
 </table>
 
-<div class="alert alert-info text-center">Nenhuma tarefa cadastrada.</div>
+<div *ngIf="!temTarefas()" class="alert alert-info text-center">Nenhuma tarefa cadastrada.</div>
