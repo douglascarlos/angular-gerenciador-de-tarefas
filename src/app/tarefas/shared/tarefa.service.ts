@@ -34,13 +34,19 @@ export class TarefaService {
     this.atualizarDados(tarefas);
   }
 
+  public remover(tarefaRemovida: Tarefa): void {
+    let tarefas = this.buscar();
+    tarefas = tarefas.filter(tarefa => tarefa.getId() != tarefaRemovida.getId());
+    this.atualizarDados(tarefas);
+  }
+
   private buscarDados(): Tarefa[] {
   	let dados: string = localStorage.getItem('tarefas');
   	let tarefas: Tarefa[] = [];
   	if(dados){
   		tarefas = JSON.parse(dados);
   		tarefas.forEach((tarefa, index, array) => {
-  			array[index] = new Tarefa(tarefa.id, tarefa.nome, tarefa.concluida);
+        array[index] = new Tarefa(tarefa.id, tarefa.nome, tarefa.concluida);
   		});
   	}
   	return tarefas;

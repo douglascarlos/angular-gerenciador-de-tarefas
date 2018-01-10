@@ -21,4 +21,12 @@ export class ListarComponent implements OnInit {
   	return this.tarefas.length > 0;
   }
 
+  public remover($event: any, tarefa: Tarefa): void {
+    $event.preventDefault();
+    if(confirm('Você deseja remover a tarefa ' + tarefa.getNome() + '?')){
+      this.tarefaService.remover(tarefa);
+      this.tarefas = this.tarefaService.buscar();
+    }
+  }
+
 }
