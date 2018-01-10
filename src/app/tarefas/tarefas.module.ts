@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TarefaService } from './shared';
 import { ListarComponent } from './listar/listar.component';
 import { CadastrarComponent } from './cadastrar';
+import { EditarComponent } from './editar';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { CadastrarComponent } from './cadastrar';
   ],
   declarations: [
   	ListarComponent,
-  	CadastrarComponent
+  	CadastrarComponent,
+  	EditarComponent
   ]
 })
 export class TarefasModule { }
