@@ -41,9 +41,7 @@ export class TarefaService {
   }
 
   public alterarStatus(tarefa: Tarefa): void {
-    console.log(tarefa);
     tarefa.setConcluida(!tarefa.estaConcluida());
-    console.log(tarefa);
     this.editar(tarefa);
   }
 
