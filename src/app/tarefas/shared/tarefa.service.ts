@@ -14,14 +14,29 @@ export class TarefaService {
   public cadastrar(tarefa: Tarefa): void {
     tarefa.setId((new Date()).getTime());
     tarefa.setConcluida(false);
-    let tarefas = this.buscar();
+    let tarefas: Tarefa[] = this.buscar();
     tarefas.push(tarefa);
     this.atualizarDados(tarefas);
   }
 
+  public buscarPorId(id: number): Tarefa {
+    let tarefas: Tarefa[] = this.buscar();
+    return tarefas.find(tarefa => tarefa.getId() === id);
+  }
+
+  public editar(tarefaAtulizada: Tarefa): void {
+    let tarefas: Tarefa[] = this.buscar();
+    tarefas.forEach((tarefa, index, array) => {
+      if(tarefa.getId() == tarefaAtulizada.getId()){
+        array[index] = tarefaAtulizada;
+      }
+    });
+    this.atualizarDados(tarefas);
+  }
+
   private buscarDados(): Tarefa[] {
-  	let dados = localStorage.getItem('tarefas');
-  	let tarefas = [];
+  	let dados: string = localStorage.getItem('tarefas');
+  	let tarefas: Tarefa[] = [];
   	if(dados){
   		tarefas = JSON.parse(dados);
   		tarefas.forEach((tarefa, index, array) => {
@@ -32,7 +47,7 @@ export class TarefaService {
   }
 
   private atualizarDados(tarefas: Tarefa[]): void {
-  	let dados = JSON.stringify(tarefas);
+  	let dados: string = JSON.stringify(tarefas);
   	localStorage.setItem('tarefas', dados);
   }
 
