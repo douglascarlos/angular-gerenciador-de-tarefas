@@ -40,6 +40,13 @@ export class TarefaService {
     this.atualizarDados(tarefas);
   }
 
+  public alterarStatus(tarefa: Tarefa): void {
+    console.log(tarefa);
+    tarefa.setConcluida(!tarefa.estaConcluida());
+    console.log(tarefa);
+    this.editar(tarefa);
+  }
+
   private buscarDados(): Tarefa[] {
   	let dados: string = localStorage.getItem('tarefas');
   	let tarefas: Tarefa[] = [];
